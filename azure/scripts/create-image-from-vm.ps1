@@ -1,8 +1,26 @@
-$json = (Get-Content -Raw -path './env.json' | Out-String | ConvertFrom-Json)
-$vmName = $json.vmName
-$resourceGroupName = $json.resourceGroupName
-$location = $json.location
-$imageName = $json.imageName
+# $json = (Get-Content -Raw -path './env.json' | Out-String | ConvertFrom-Json)
+# $vmName = $json.vmName
+# $resourceGroupName = $json.resourceGroupName
+# $location = $json.location
+# $imageName = $json.imageName
+
+param(
+  [Parameter(Mandatory=$True)]
+  [string]
+  $vmName,
+
+  [Parameter(Mandatory=$True)]
+  [string]
+  $resourceGroupName,
+
+  [Parameter(Mandatory=$True)]
+  [string]
+  $location,
+
+  [Parameter(Mandatory=$True)]
+  [string]
+  $imageName
+)
 
 Stop-AzVM `
   -ResourceGroupName $resourceGroupName `
