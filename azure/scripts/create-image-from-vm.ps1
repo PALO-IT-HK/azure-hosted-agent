@@ -91,7 +91,7 @@ Remove-AzVm `
 
 Remove-AzNetworkInterface `
   -ResourceGroup $resourceGroupName `
-  -Name $vmName"24" `
+  -Name "$($vmName)24" `
   –Force
 
 Get-AzDisk `
@@ -101,15 +101,15 @@ Get-AzDisk `
 
 Get-AzVirtualNetwork `
   -ResourceGroup $resourceGroupName `
-  -Name $vmName"-vnet" `
+  -Name "$($vmName)-vnet" `
   | Remove-AzVirtualNetwork -Force
 
 Get-AzNetworkSecurityGroup `
   -ResourceGroup $resourceGroupName `
-  -Name $vmName"-nsg" `
+  -Name "$($vmName)-nsg" `
   | Remove-AzNetworkSecurityGroup -Force
 
 Get-AzPublicIpAddress `
   -ResourceGroup $resourceGroupName `
-  -Name $vmName"-ip" `
+  -Name "$($vmName)-ip" `
   | Remove-AzPublicIpAddress -Force
